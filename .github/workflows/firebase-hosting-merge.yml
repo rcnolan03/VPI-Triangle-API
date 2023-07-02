@@ -22,7 +22,5 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TRIANGLE_WEBSITE_DEV }}'
-          API_KEY: '${{ secrets.API_KEY }}'
-          PROJECTURL: '${{ secrets.PROJECTURL }}'
           channelId: live
           projectId: triangle-website-dev
