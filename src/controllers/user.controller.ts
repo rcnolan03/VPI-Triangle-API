@@ -26,7 +26,7 @@ export class UserController {
       .getSupabase()
       .from('user')
       .select()
-      .eq('id', userId);
+      .eq('uid', userId);
 
     if (error) {
       throw new Error(error.message);
@@ -54,7 +54,7 @@ export class UserController {
       .getSupabase()
       .from('user')
       .delete()
-      .eq('id', userId);
+      .eq('uid', userId);
 
     if (error) {
       throw new Error(error.message);
@@ -69,7 +69,7 @@ export class UserController {
       .getSupabase()
       .from('user')
       .update(userData)
-      .eq('id', userId);
+      .eq('uid', userId);
 
     if (error) {
       throw new Error(error.message);
