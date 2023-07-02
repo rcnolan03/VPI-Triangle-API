@@ -41,4 +41,4 @@ jobs:
           app-name: 'VPI-Triangle-API'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E9DC25B28E8040DABB879ED2692B229F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_643450E9E5CA48E29C8F0ED0E5463327 }}
