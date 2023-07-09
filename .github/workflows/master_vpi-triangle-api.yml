@@ -44,7 +44,7 @@ jobs:
           TOKEN_URI: ${{ secrets.TOKEN_URI }}
           AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}
           CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
-        run: echo $Type
+        run: echo $PRIVATE_KEY
 
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
