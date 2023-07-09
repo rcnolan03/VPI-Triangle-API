@@ -19,10 +19,10 @@ export interface User {
   city?: string;
   state?: string;
   zipcode?: string;
-  webRole?: string;
+  role?: UserRole[];
   lastLogin?: string; //This will be deprecated  
   emailVerified?: boolean;
-  linkedInUrl?: string;
+  linkedin_url?: string;
 }
 
 export interface UserRole {
@@ -62,3 +62,4 @@ export interface Committee {
     name?: string;
     description?: string;
 }
+

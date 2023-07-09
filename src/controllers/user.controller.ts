@@ -1,17 +1,21 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { SupabaseService } from '../supabase/supabase.service';
 import { User } from 'src/Interfaces/tables';
+import { ApiTags } from '@nestjs/swagger';
+import { FirebaseAuthGuard } from 'src/firebase/firebase-auth.guard';
 
-@Controller('user')
+@Controller('users')
+@ApiTags('user')
+@UseGuards(FirebaseAuthGuard)
 export class UserController {
   constructor(private readonly supabaseService: SupabaseService) {}
 
-  @Get('/all')
+  @Get('')
   async getUsers() {
     const { data, error } = await this.supabaseService
       .getSupabase()
       .from('user')
-      .select('*');
+      .select('*, pledge_class(id, name, description), user_role(role(name, description)), user_committee(committee(name, description)), user_login_history(*)');
 
     if (error) {
       throw new Error(error.message);
@@ -25,7 +29,7 @@ export class UserController {
     const { data, error } = await this.supabaseService
       .getSupabase()
       .from('user')
-      .select()
+      .select('*, pledge_class(id, name, description), user_role(role(name, description)), user_committee(committee(name, description)), user_login_history(*)')
       .eq('uid', userId);
 
     if (error) {

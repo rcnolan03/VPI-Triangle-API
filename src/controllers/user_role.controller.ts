@@ -1,8 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { SupabaseService } from '../supabase/supabase.service';
 import { UserRole } from 'src/Interfaces/tables';
+import { ApiTags } from '@nestjs/swagger';
+import { FirebaseAuthGuard } from 'src/firebase/firebase-auth.guard';
 
 @Controller('user-role')
+@ApiTags('user-role')
+@UseGuards(FirebaseAuthGuard)
 export class UserRoleController {
   constructor(private readonly supabaseService: SupabaseService) {}
 
