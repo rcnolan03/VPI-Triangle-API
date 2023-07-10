@@ -63,3 +63,42 @@ export interface Committee {
     description?: string;
 }
 
+export interface Role {
+    value: string;
+  }
+
+export interface IUserApi {
+    uid?: string;
+    first_name?: string;
+    last_name?: string;
+    displayName?: string;
+    emailVerified?: boolean;
+    dob?: Date;
+    nickname?: string;
+    grad_year?: number;
+    pledge_class?: PledgeClass;
+    email_school?: string;
+    email_personal?: string;
+    phone?: string;
+    headshot?: string;
+    hometown_city?: string;
+    hometown_state?: string;
+    major?: string;
+    minor?: string;
+    street?: string;
+    street2?: string;
+    city?: string;
+    state?: string;
+    zipcode?: string;
+    active?: boolean;
+    createdTimestamp?: Date;
+    modifiedTimestamp?: Date;
+    linkedin_url?: string;
+    user_role?: Role[];
+    user_committeee?: Committee[];
+    user_login_history?: LoginHistory[];
+  }
+
+  export class UserApiResponse {
+    users: IUserApi[];
+  }
