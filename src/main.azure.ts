@@ -5,25 +5,25 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 export async function createApp(): Promise<INestApplication> {
   const app = await NestFactory.create(AppModule, { cors: true });
+  app.setGlobalPrefix('api');
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('VPI Triangle API')
     .setDescription('The VPI Triangle API description')
-    .setVersion('1.0')
+    .setVersion('2.0')
     .addTag('user')
     .addTag('user-role')
     .addTag('pledge-class')
     .addTag('login-history')
     .addTag('committee')
+    .setBasePath('v2')
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
 
-  SwaggerModule.setup('api', app, document, {
+  SwaggerModule.setup('v2', app, document, {
     useGlobalPrefix: true
   });
-
-  app.setGlobalPrefix('api');
 
   await app.init();
   await app.listen(process.env.PORT);

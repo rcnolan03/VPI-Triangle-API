@@ -14,8 +14,8 @@ export class UserController {
   async getUsers() {
     const { data, error } = await this.supabaseService
       .getSupabase()
-      .from('user')
-      .select('*, pledge_class(id, name, description), user_role(role(name, description)), user_committee(committee(name, description)), user_login_history(*)');
+      .from('user_view')
+      .select('*');
 
     if (error) {
       throw new Error(error.message);
@@ -28,8 +28,8 @@ export class UserController {
   async getUser(@Param('userId') userId: string) {
     const { data, error } = await this.supabaseService
       .getSupabase()
-      .from('user')
-      .select('*, pledge_class(id, name, description), user_role(role(name, description)), user_committee(committee(name, description)), user_login_history(*)')
+      .from('user_view')
+      .select('*')
       .eq('uid', userId);
 
     if (error) {
