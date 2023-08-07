@@ -8,8 +8,10 @@ The API project for all VPI Triangle Fraternity applications
 $ npm install
 ```
 
-## Running the app locally
+## Running the api locally
 
+1. Install [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+2. Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 ```bash
 # development
 $ npm run start && func host start
